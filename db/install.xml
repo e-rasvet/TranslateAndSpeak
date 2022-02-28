@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="question/type/translateandspeak/db" VERSION="2018080210" COMMENT="XMLDB file for Moodle question/type/translateandspeak"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../../lib/xmldb/xmldb.xsd"
+>
+    <TABLES>
+        <TABLE NAME="qtype_tas_options" COMMENT="Extra options for translateandspeak questions.">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="questionid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="sample_answer" TYPE="text" NOTNULL="false" SEQUENCE="false" COMMENT=""/>
+                <FIELD NAME="showtranscriptionfl" TYPE="int" LENGTH="10" DEFAULT="0" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="showpercentscorefl" TYPE="int" LENGTH="10" DEFAULT="0" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="saveresponseasaudiofl" TYPE="int" LENGTH="10" DEFAULT="0" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="showanalysisfl" TYPE="int" LENGTH="10" DEFAULT="0" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="showspeakingfl" TYPE="int" LENGTH="10" DEFAULT="0" NOTNULL="false" SEQUENCE="false"/>
+                <FIELD NAME="fb_type" TYPE="char" LENGTH="16" NOTNULL="false" DEFAULT="0" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+                <KEY NAME="questionid" TYPE="foreign-unique" FIELDS="questionid" REFTABLE="question" REFFIELDS="id"/>
+            </KEYS>
+        </TABLE>
+        <TABLE NAME="qtype_tas_responses" COMMENT="Users Responses">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true"/>
+                <FIELD NAME="answer" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT=""/>
+                <FIELD NAME="targetanswer" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT=""/>
+                <FIELD NAME="targetanswerjp" TYPE="text" NOTNULL="true" SEQUENCE="false" COMMENT=""/>
+                <FIELD NAME="usageid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="slotid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="cmid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false"/>
+                <FIELD NAME="time" TYPE="int" LENGTH="11" NOTNULL="true" SEQUENCE="false"/>
+            </FIELDS>
+            <KEYS>
+                <KEY NAME="primary" TYPE="primary" FIELDS="id"/>
+            </KEYS>
+        </TABLE>
+    </TABLES>
+</XMLDB>
